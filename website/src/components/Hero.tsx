@@ -27,11 +27,11 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-gold-600 font-medium tracking-widest uppercase text-sm mb-4 block">
+            <span className="text-maroon-600 font-medium tracking-widest uppercase text-sm mb-4 block">
               Premium Food Delivery & Catering
             </span>
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-charcoal-950 leading-tight mb-6">
-              Exquisite Catering for <span className="text-gold-600 italic">Every Occasion</span>
+              Exquisite Catering for <span className="text-maroon-600 italic">Every Occasion</span>
             </h1>
             <p className="text-lg md:text-xl text-charcoal-700 mb-10 max-w-2xl leading-relaxed">
               From intimate breakfast meetings to grand weddings, we deliver bespoke culinary experiences across Dudley and beyond. Fresh ingredients, exceptional service.
@@ -46,14 +46,14 @@ export default function Hero() {
           >
             <Link
               href="#contact"
-              className="px-8 py-4 bg-gold-600 hover:bg-gold-500 text-white font-medium rounded-sm text-center transition-all flex items-center justify-center gap-2 group shadow-md hover:shadow-gold-600/10"
+              className="px-8 py-4 bg-maroon-600 hover:bg-maroon-500 text-white font-medium rounded-sm text-center transition-all flex items-center justify-center gap-2 group shadow-md hover:shadow-maroon-600/10"
             >
               Book Catering
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               href="#menus"
-              className="px-8 py-4 bg-transparent border border-gold-200 hover:border-gold-500 text-charcoal-900 hover:text-gold-600 hover:bg-gold-50/40 font-medium rounded-sm text-center transition-all"
+              className="px-8 py-4 bg-transparent border border-maroon-200 hover:border-maroon-500 text-charcoal-900 hover:text-maroon-600 hover:bg-maroon-50/40 font-medium rounded-sm text-center transition-all"
             >
               View Our Menus
             </Link>
@@ -69,11 +69,11 @@ export default function Hero() {
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
         <span className="text-charcoal-500 text-xs uppercase tracking-widest">Scroll</span>
-        <div className="w-px h-12 bg-gold-200 relative overflow-hidden">
+        <div className="w-px h-12 bg-maroon-200 relative overflow-hidden">
           <motion.div
             animate={{ y: ["-100%", "100%"] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-            className="absolute inset-0 bg-gold-500"
+            className="absolute inset-0 bg-maroon-500"
           ></motion.div>
         </div>
       </motion.div>

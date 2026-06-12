@@ -45,12 +45,12 @@ export default function MenuPreview() {
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="h-px w-8 bg-gold-500"></div>
-            <span className="text-gold-600 font-medium tracking-widest uppercase text-sm">Taste The Quality</span>
-            <div className="h-px w-8 bg-gold-500"></div>
+            <div className="h-px w-8 bg-maroon-500"></div>
+            <span className="text-maroon-600 font-medium tracking-widest uppercase text-sm">Taste The Quality</span>
+            <div className="h-px w-8 bg-maroon-500"></div>
           </div>
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-charcoal-950 mb-6">
-            Sample <span className="text-gold-600 italic">Menus</span>
+            Sample <span className="text-maroon-600 italic">Menus</span>
           </h2>
           <p className="text-charcoal-700 text-lg">
             Explore a selection of our popular offerings. All menus can be fully customized to suit your event&apos;s specific dietary needs and preferences.
@@ -65,8 +65,8 @@ export default function MenuPreview() {
               onClick={() => setActiveCategory(category.id)}
               className={`px-6 py-3 rounded-sm text-sm font-medium transition-all duration-300 ${
                 activeCategory === category.id
-                  ? "bg-gold-600 text-white shadow-md shadow-gold-600/10"
-                  : "bg-gold-50/60 text-charcoal-700 hover:bg-gold-100 hover:text-charcoal-950 border border-gold-100"
+                  ? "bg-maroon-600 text-white shadow-md shadow-maroon-600/10"
+                  : "bg-maroon-50/60 text-charcoal-700 hover:bg-maroon-100 hover:text-charcoal-950 border border-maroon-100"
               }`}
             >
               {category.label}
@@ -86,12 +86,12 @@ export default function MenuPreview() {
               className="grid md:grid-cols-2 gap-8"
             >
               {menuItems[activeCategory].map((item, idx) => (
-                <div key={idx} className="border-b border-gold-100/60 pb-6 group">
+                <div key={idx} className="border-b border-maroon-100/60 pb-6 group">
                   <div className="flex justify-between items-baseline mb-2">
-                    <h4 className="text-xl font-serif font-bold text-charcoal-900 group-hover:text-gold-600 transition-colors">
+                    <h4 className="text-xl font-serif font-bold text-charcoal-900 group-hover:text-maroon-600 transition-colors">
                       {item.name}
                     </h4>
-                    <span className="text-gold-600 text-sm font-medium whitespace-nowrap ml-4">
+                    <span className="text-maroon-600 text-sm font-medium whitespace-nowrap ml-4">
                       {item.price}
                     </span>
                   </div>

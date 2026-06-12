@@ -25,12 +25,12 @@ export default function About() {
             transition={{ duration: 0.8 }}
           >
             <div className="flex items-center gap-4 mb-6">
-              <div className="h-px w-12 bg-gold-500"></div>
-              <span className="text-gold-600 font-medium tracking-widest uppercase text-sm">Our Story</span>
+              <div className="h-px w-12 bg-maroon-500"></div>
+              <span className="text-maroon-600 font-medium tracking-widest uppercase text-sm">Our Story</span>
             </div>
             
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-charcoal-950 mb-6">
-              Elevating Every Event with <span className="text-gold-600 italic">Exceptional Taste</span>
+              Elevating Every Event with <span className="text-maroon-600 italic">Exceptional Taste</span>
             </h2>
             
             <p className="text-charcoal-700 mb-6 leading-relaxed text-lg">
@@ -51,7 +51,7 @@ export default function About() {
                   transition={{ delay: idx * 0.1, duration: 0.5 }}
                   className="flex items-center gap-3 text-charcoal-800"
                 >
-                  <CheckCircle2 className="w-5 h-5 text-gold-600 shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-maroon-600 shrink-0" />
                   <span>{feature}</span>
                 </motion.li>
               ))}
@@ -66,9 +66,9 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="relative h-[600px] w-full"
           >
-            <div className="absolute top-0 right-0 w-4/5 h-4/5 rounded-sm overflow-hidden border border-gold-100 shadow-2xl">
+            <div className="absolute top-0 right-0 w-4/5 h-4/5 rounded-sm overflow-hidden border border-maroon-100 shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1606214174585-f2f2d50c0825?q=80&w=2070&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2070&auto=format&fit=crop"
                 alt="Chef preparing food"
                 fill
                 className="object-cover"
@@ -83,7 +83,7 @@ export default function About() {
               />
             </div>
             {/* Decorative element */}
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 border border-gold-500/30 rounded-full z-[-1]"></div>
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 border border-maroon-500/30 rounded-full z-[-1]"></div>
           </motion.div>
 
         </div>
