@@ -114,7 +114,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 8 }}
                   transition={{ duration: 0.18 }}
-                  className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[640px] max-w-[90vw]"
+                  className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[820px] max-w-[92vw]"
                 >
                   <div className="bg-white border border-maroon-100 rounded-sm shadow-2xl shadow-charcoal-950/10 p-8 grid grid-cols-4 gap-8">
                     {menuCategories.map((category) => (
@@ -130,7 +130,7 @@ export default function Navbar() {
                             <li key={menu.id}>
                               <Link
                                 href={`/menus#${menu.id}`}
-                                className="text-sm text-charcoal-600 hover:text-maroon-600 transition-colors"
+                                className="text-sm text-charcoal-600 hover:text-maroon-600 transition-colors whitespace-nowrap"
                               >
                                 {menu.name}
                               </Link>
