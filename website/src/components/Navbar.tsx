@@ -1,22 +1,24 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, UtensilsCrossed } from "lucide-react";
+import { Menu, X, UtensilsCrossed, ChevronDown, Phone, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { menuCategories } from "@/lib/menus-data";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Menus", href: "#menus" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/#home" },
+  { name: "About", href: "/#about" },
+  { name: "Services", href: "/#services" },
 ];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileMenusOpen, setMobileMenusOpen] = useState(false);
+  const [menusDropdownOpen, setMenusDropdownOpen] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,21 +28,54 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const openDropdown = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setMenusDropdownOpen(true);
+  };
+
+  const closeDropdownDelayed = () => {
+    closeTimer.current = setTimeout(() => setMenusDropdownOpen(false), 150);
+  };
+
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-white/80 backdrop-blur-md border-b border-maroon-100/80 py-4 shadow-sm"
-          : "bg-transparent py-6"
+          ? "bg-white/80 backdrop-blur-md border-b border-maroon-100/80 shadow-sm"
+          : "bg-transparent"
       )}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
+      {/* Info bar */}
+      <div
+        className={cn(
+          "hidden lg:block border-b border-white/10 transition-all duration-300 overflow-hidden",
+          isScrolled ? "max-h-0 opacity-0 border-b-0" : "max-h-12 opacity-100 bg-charcoal-950"
+        )}
+      >
+        <div className="container mx-auto px-6 flex items-center justify-between text-xs text-charcoal-200 py-2 tracking-wide">
+          <span className="uppercase tracking-widest text-maroon-300/90">
+            Est. 1988 &middot; 38 Years of Five-Star Catering
+          </span>
+          <div className="flex items-center gap-6">
+            <a href="tel:+441384240442" className="flex items-center gap-1.5 hover:text-white transition-colors">
+              <Phone className="w-3.5 h-3.5" />
+              01384 240442
+            </a>
+            <a href="tel:+447971560609" className="flex items-center gap-1.5 hover:text-white transition-colors">
+              <Phone className="w-3.5 h-3.5" />
+              07971 560609
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className={cn("container mx-auto px-6 flex items-center justify-between transition-all duration-300", isScrolled ? "py-4" : "py-6")}>
         {/* Logo */}
-        <Link href="#home" className="flex items-center gap-2 group">
+        <Link href="/#home" className="flex items-center gap-2 group">
           <UtensilsCrossed className="w-8 h-8 text-maroon-600 group-hover:text-maroon-500 transition-colors" />
           <span className="font-serif text-2xl font-bold tracking-wide text-charcoal-950 group-hover:text-maroon-600 transition-colors">
-            Five Star
+            Five Star Caterers
           </span>
         </Link>
 
@@ -55,8 +90,82 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
+
+          {/* Menus dropdown trigger */}
+          <div
+            className="relative"
+            onMouseEnter={openDropdown}
+            onMouseLeave={closeDropdownDelayed}
+          >
+            <Link
+              href="/menus"
+              className="flex items-center gap-1 text-sm font-medium text-charcoal-800 hover:text-maroon-600 transition-colors"
+            >
+              Menus
+              <ChevronDown
+                className={cn("w-3.5 h-3.5 transition-transform duration-200", menusDropdownOpen && "rotate-180")}
+              />
+            </Link>
+
+            <AnimatePresence>
+              {menusDropdownOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 8 }}
+                  transition={{ duration: 0.18 }}
+                  className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[640px] max-w-[90vw]"
+                >
+                  <div className="bg-white border border-maroon-100 rounded-sm shadow-2xl shadow-charcoal-950/10 p-8 grid grid-cols-4 gap-8">
+                    {menuCategories.map((category) => (
+                      <div key={category.id}>
+                        <div className="flex items-center gap-2 mb-4">
+                          <category.icon className="w-4 h-4 text-maroon-600" />
+                          <span className="font-serif font-bold text-charcoal-950 text-sm">
+                            {category.shortTitle}
+                          </span>
+                        </div>
+                        <ul className="space-y-2.5">
+                          {category.menus.map((menu) => (
+                            <li key={menu.id}>
+                              <Link
+                                href={`/menus#${menu.id}`}
+                                className="text-sm text-charcoal-600 hover:text-maroon-600 transition-colors"
+                              >
+                                {menu.name}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                    <div className="col-span-4 border-t border-maroon-100/70 pt-5 flex items-center justify-between">
+                      <span className="text-xs text-charcoal-500 italic">
+                        All menus fully customizable to your dietary needs.
+                      </span>
+                      <Link
+                        href="/menus"
+                        className="flex items-center gap-1.5 text-sm font-medium text-maroon-600 hover:text-maroon-500 transition-colors group"
+                      >
+                        View Full Menu &amp; Pricing
+                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
           <Link
-            href="#contact"
+            href="/#contact"
+            className="text-sm font-medium text-charcoal-800 hover:text-maroon-600 transition-colors"
+          >
+            Contact
+          </Link>
+
+          <Link
+            href="/#contact"
             className="px-5 py-2.5 rounded-sm bg-maroon-600 hover:bg-maroon-500 text-white text-sm font-medium transition-all shadow-md hover:shadow-maroon-600/20"
           >
             Book Now
@@ -79,21 +188,94 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-white border-b border-maroon-100 shadow-xl md:hidden"
+            className="absolute top-full left-0 w-full bg-white border-b border-maroon-100 shadow-xl md:hidden max-h-[calc(100vh-4rem)] overflow-y-auto"
           >
-            <nav className="flex flex-col p-6 gap-4">
+            <nav className="flex flex-col p-6 gap-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-lg font-medium text-charcoal-800 hover:text-maroon-600 py-2 border-b border-maroon-100/50 transition-colors"
+                  className="text-lg font-medium text-charcoal-800 hover:text-maroon-600 py-3 border-b border-maroon-100/50 transition-colors"
                 >
                   {link.name}
                 </Link>
               ))}
+
+              {/* Mobile Menus accordion */}
+              <div className="border-b border-maroon-100/50">
+                <button
+                  onClick={() => setMobileMenusOpen(!mobileMenusOpen)}
+                  className="w-full flex items-center justify-between text-lg font-medium text-charcoal-800 hover:text-maroon-600 py-3 transition-colors"
+                >
+                  Menus
+                  <ChevronDown
+                    className={cn("w-5 h-5 transition-transform duration-200", mobileMenusOpen && "rotate-180")}
+                  />
+                </button>
+                <AnimatePresence>
+                  {mobileMenusOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pb-4 pl-2 grid grid-cols-2 gap-x-6 gap-y-5">
+                        {menuCategories.map((category) => (
+                          <div key={category.id}>
+                            <p className="text-xs uppercase tracking-widest text-maroon-600 font-medium mb-2">
+                              {category.shortTitle}
+                            </p>
+                            <ul className="space-y-2">
+                              {category.menus.map((menu) => (
+                                <li key={menu.id}>
+                                  <Link
+                                    href={`/menus#${menu.id}`}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="text-sm text-charcoal-600 hover:text-maroon-600 transition-colors"
+                                  >
+                                    {menu.name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                      <Link
+                        href="/menus"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="flex items-center gap-1.5 text-sm font-medium text-maroon-600 pb-4"
+                      >
+                        View Full Menu &amp; Pricing
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               <Link
-                href="#contact"
+                href="/#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-lg font-medium text-charcoal-800 hover:text-maroon-600 py-3 border-b border-maroon-100/50 transition-colors"
+              >
+                Contact
+              </Link>
+
+              <div className="flex flex-col gap-2 mt-2 text-sm text-charcoal-600">
+                <a href="tel:+441384240442" className="flex items-center gap-2 hover:text-maroon-600 transition-colors">
+                  <Phone className="w-4 h-4" /> 01384 240442
+                </a>
+                <a href="tel:+447971560609" className="flex items-center gap-2 hover:text-maroon-600 transition-colors">
+                  <Phone className="w-4 h-4" /> 07971 560609
+                </a>
+              </div>
+
+              <Link
+                href="/#contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="mt-4 text-center px-5 py-3 rounded-sm bg-maroon-600 text-white font-medium hover:bg-maroon-500 transition-colors"
               >

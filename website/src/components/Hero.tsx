@@ -27,8 +27,10 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-maroon-600 font-medium tracking-widest uppercase text-sm mb-4 block">
-              Premium Food Delivery & Catering
+            <span className="inline-flex items-center gap-2 text-maroon-600 font-medium tracking-widest uppercase text-sm mb-4">
+              Premium Catering
+              <span className="w-1 h-1 rounded-full bg-maroon-300" />
+              Family Run Since 1988
             </span>
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-charcoal-950 leading-tight mb-6">
               Exquisite Catering for <span className="text-maroon-600 italic">Every Occasion</span>

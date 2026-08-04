@@ -11,9 +11,16 @@ const features = [
   "Dietary Accommodations",
 ];
 
+const stats = [
+  { value: "1988", label: "Est. by Michelle Dabbs" },
+  { value: "38", label: "Years of Experience" },
+  { value: "14+", label: "Bespoke Menus" },
+  { value: "100%", label: "Family Run" },
+];
+
 export default function About() {
   return (
-    <section id="about" className="py-24 bg-white relative">
+    <section id="about" className="scroll-mt-24 py-24 bg-white relative">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
@@ -34,14 +41,18 @@ export default function About() {
             </h2>
             
             <p className="text-charcoal-700 mb-6 leading-relaxed text-lg">
-              At Five Star Caterers, we believe that incredible food is the heart of every memorable gathering. Based in Dudley, we specialize in delivering premium catering services tailored to your exact needs—whether it&apos;s a sharp business luncheon, a joyous wedding, or a respectful wake.
+              Five Star Caterers was founded on 13th March 1988 by Michelle Dabbs, who started the
+              business at just 18 years old through the government&apos;s Enterprise Allowance Scheme.
+              Thirty-eight years on, we&apos;re still a family-run business based in Dudley, delivering
+              premium catering tailored to your exact needs—whether it&apos;s a sharp business luncheon,
+              a joyous wedding, or a respectful wake.
             </p>
-            
+
             <p className="text-charcoal-700 mb-10 leading-relaxed text-lg">
               Our culinary team is passionate about quality, presentation, and flavor, ensuring that every bite leaves a lasting impression on your guests.
             </p>
- 
-            <ul className="grid sm:grid-cols-2 gap-4">
+
+            <ul className="grid sm:grid-cols-2 gap-4 mb-10">
               {features.map((feature, idx) => (
                 <motion.li
                   key={idx}
@@ -56,6 +67,21 @@ export default function About() {
                 </motion.li>
               ))}
             </ul>
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-4 border-t border-maroon-100 pt-8">
+              {stats.map((stat, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1, duration: 0.5 }}
+                >
+                  <p className="text-2xl md:text-3xl font-serif font-bold text-maroon-600">{stat.value}</p>
+                  <p className="text-xs md:text-sm text-charcoal-500 leading-snug mt-1">{stat.label}</p>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
  
           {/* Image Collage */}

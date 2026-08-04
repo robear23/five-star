@@ -5,7 +5,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 bg-maroon-50 relative">
+    <section id="contact" className="scroll-mt-24 py-24 bg-maroon-50 relative">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-5 gap-16">
           
@@ -35,8 +35,11 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-charcoal-500 font-medium mb-1">Call Us</p>
-                  <a href="tel:+441384240442" className="text-lg text-charcoal-900 hover:text-maroon-600 transition-colors">
-                    +44 1384 240442
+                  <a href="tel:+441384240442" className="block text-lg text-charcoal-900 hover:text-maroon-600 transition-colors">
+                    01384 240442
+                  </a>
+                  <a href="tel:+447971560609" className="block text-lg text-charcoal-900 hover:text-maroon-600 transition-colors">
+                    07971 560609
                   </a>
                 </div>
               </div>
@@ -61,7 +64,8 @@ export default function Contact() {
                   <p className="text-sm text-charcoal-500 font-medium mb-1">Visit Us</p>
                   <p className="text-lg text-charcoal-900">
                     166 Wolverhampton Street<br />
-                    Dudley, United Kingdom
+                    Dudley, West Midlands<br />
+                    DY1 3AH
                   </p>
                 </div>
               </div>
