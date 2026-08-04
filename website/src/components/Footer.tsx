@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           
           <div className="md:col-span-2">
-            <Link href="#home" className="flex items-center gap-2 mb-6 group inline-flex">
+            <Link href="/#home" className="flex items-center gap-2 mb-6 group inline-flex">
               <UtensilsCrossed className="w-6 h-6 text-maroon-600 group-hover:text-maroon-500 transition-colors" />
               <span className="font-serif text-xl font-bold tracking-wide text-charcoal-950 group-hover:text-maroon-600 transition-colors">
                 Five Star Caterers
