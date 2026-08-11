@@ -16,7 +16,7 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "Five Star Caterers | Premium Food Delivery & Catering",
-  description: "Bespoke catering for business functions, weddings, wakes, and special occasions in Dudley, UK. Fresh ingredients and premium service.",
+  description: "Bespoke catering for business lunches, training courses, breakfast meetings, parties, wakes and special occasions in Dudley, UK. Fresh ingredients and premium service.",
 };
 
 export default function RootLayout({
@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${playfair.variable} antialiased selection:bg-maroon-500/30 selection:text-maroon-100`}>
+      <body className={`${inter.variable} ${playfair.variable} antialiased selection:bg-sage-500/30 selection:text-sage-100`}>
         <Navbar />
         {children}
         <Footer />

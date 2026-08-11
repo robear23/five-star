@@ -7,7 +7,7 @@ import MenusCta from "@/components/menus/MenusCta";
 export const metadata: Metadata = {
   title: "Our Menus | Five Star Caterers",
   description:
-    "Browse our full range of wake, wedding, party and christening menus. Bespoke catering in Dudley, West Midlands since 1988.",
+    "Browse our full range of business, party, wake, christening, canapé and refreshment menus. Bespoke catering in Dudley, West Midlands since 1988.",
 };
 
 export default function MenusPage() {

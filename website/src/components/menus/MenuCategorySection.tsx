@@ -17,7 +17,7 @@ export default function MenuCategorySection({
   return (
     <section
       id={category.id}
-      className={`scroll-mt-28 py-20 ${tinted ? "bg-maroon-50" : "bg-white"}`}
+      className={`scroll-mt-28 py-20 ${tinted ? "bg-sage-50" : "bg-white"}`}
     >
       <div className="container mx-auto px-6">
         <motion.div
@@ -28,8 +28,8 @@ export default function MenuCategorySection({
           className="max-w-2xl mb-12"
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-white border border-maroon-100 rounded-sm flex items-center justify-center shrink-0">
-              <category.icon className="w-6 h-6 text-maroon-600" />
+            <div className="w-12 h-12 bg-white border border-sage-100 rounded-sm flex items-center justify-center shrink-0">
+              <category.icon className="w-6 h-6 text-sage-600" />
             </div>
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-charcoal-950">
               {category.title}

@@ -15,7 +15,7 @@ export default function MenusCta() {
           transition={{ duration: 0.6 }}
           className="bg-charcoal-950 rounded-sm px-8 py-16 md:px-16 text-center relative overflow-hidden"
         >
-          <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-maroon-600/20 blur-3xl" />
+          <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-sage-600/20 blur-3xl" />
           <div className="relative z-10">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-4">
               Don&apos;t See Exactly What You Need?
@@ -27,7 +27,7 @@ export default function MenusCta() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/#contact"
-                className="px-8 py-4 bg-maroon-600 hover:bg-maroon-500 text-white font-medium rounded-sm text-center transition-all flex items-center justify-center gap-2 group w-full sm:w-auto"
+                className="px-8 py-4 bg-sage-600 hover:bg-sage-500 text-white font-medium rounded-sm text-center transition-all flex items-center justify-center gap-2 group w-full sm:w-auto"
               >
                 Enquire Now
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

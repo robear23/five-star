@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, UtensilsCrossed, ChevronDown, Phone, ArrowRight } from "lucide-react";
+import { Menu, X, Leaf, ChevronDown, Phone, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { menuCategories } from "@/lib/menus-data";
@@ -42,7 +42,7 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-white/80 backdrop-blur-md border-b border-maroon-100/80 shadow-sm"
+          ? "bg-white/80 backdrop-blur-md border-b border-sage-100/80 shadow-sm"
           : "bg-transparent"
       )}
     >
@@ -54,7 +54,7 @@ export default function Navbar() {
         )}
       >
         <div className="container mx-auto px-6 flex items-center justify-between text-xs text-charcoal-200 py-2 tracking-wide">
-          <span className="uppercase tracking-widest text-maroon-300/90">
+          <span className="uppercase tracking-widest text-gold-400/90">
             Est. 1988 &middot; 38 Years of Five-Star Catering
           </span>
           <div className="flex items-center gap-6">
@@ -72,10 +72,15 @@ export default function Navbar() {
 
       <div className={cn("container mx-auto px-6 flex items-center justify-between transition-all duration-300", isScrolled ? "py-4" : "py-6")}>
         {/* Logo */}
-        <Link href="/#home" className="flex items-center gap-2 group">
-          <UtensilsCrossed className="w-8 h-8 text-maroon-600 group-hover:text-maroon-500 transition-colors" />
-          <span className="font-serif text-2xl font-bold tracking-wide text-charcoal-950 group-hover:text-maroon-600 transition-colors">
-            Five Star Caterers
+        <Link href="/#home" className="flex items-center gap-2.5 group">
+          <Leaf className="w-8 h-8 text-sage-600 group-hover:text-sage-500 transition-colors" />
+          <span className="flex flex-col leading-none">
+            <span className="font-serif text-2xl font-bold tracking-wide text-charcoal-950 group-hover:text-sage-700 transition-colors">
+              Five Star
+            </span>
+            <span className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-gold-600 mt-1">
+              Caterers
+            </span>
           </span>
         </Link>
 
@@ -85,7 +90,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-charcoal-800 hover:text-maroon-600 transition-colors"
+              className="text-sm font-medium text-charcoal-800 hover:text-sage-600 transition-colors"
             >
               {link.name}
             </Link>
@@ -99,7 +104,7 @@ export default function Navbar() {
           >
             <Link
               href="/menus"
-              className="flex items-center gap-1 text-sm font-medium text-charcoal-800 hover:text-maroon-600 transition-colors"
+              className="flex items-center gap-1 text-sm font-medium text-charcoal-800 hover:text-sage-600 transition-colors"
             >
               Menus
               <ChevronDown
@@ -114,13 +119,13 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 8 }}
                   transition={{ duration: 0.18 }}
-                  className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[820px] max-w-[92vw]"
+                  className="absolute top-full right-0 pt-4 w-[900px] max-w-[calc(100vw-3rem)]"
                 >
-                  <div className="bg-white border border-maroon-100 rounded-sm shadow-2xl shadow-charcoal-950/10 p-8 grid grid-cols-4 gap-8">
+                  <div className="bg-white border border-sage-100 rounded-sm shadow-2xl shadow-charcoal-950/10 p-8 grid grid-cols-4 items-start gap-x-8 gap-y-7">
                     {menuCategories.map((category) => (
                       <div key={category.id}>
                         <div className="flex items-center gap-2 mb-4">
-                          <category.icon className="w-4 h-4 text-maroon-600" />
+                          <category.icon className="w-4 h-4 text-sage-600" />
                           <span className="font-serif font-bold text-charcoal-950 text-sm">
                             {category.shortTitle}
                           </span>
@@ -130,7 +135,7 @@ export default function Navbar() {
                             <li key={menu.id}>
                               <Link
                                 href={`/menus#${menu.id}`}
-                                className="text-sm text-charcoal-600 hover:text-maroon-600 transition-colors whitespace-nowrap"
+                                className="text-sm text-charcoal-600 hover:text-sage-600 transition-colors whitespace-nowrap"
                               >
                                 {menu.name}
                               </Link>
@@ -139,13 +144,13 @@ export default function Navbar() {
                         </ul>
                       </div>
                     ))}
-                    <div className="col-span-4 border-t border-maroon-100/70 pt-5 flex items-center justify-between">
+                    <div className="col-span-full border-t border-sage-100/70 pt-5 flex items-center justify-between">
                       <span className="text-xs text-charcoal-500 italic">
                         All menus fully customizable to your dietary needs.
                       </span>
                       <Link
                         href="/menus"
-                        className="flex items-center gap-1.5 text-sm font-medium text-maroon-600 hover:text-maroon-500 transition-colors group"
+                        className="flex items-center gap-1.5 text-sm font-medium text-sage-600 hover:text-sage-500 transition-colors group"
                       >
                         View Full Menu &amp; Pricing
                         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -159,14 +164,14 @@ export default function Navbar() {
 
           <Link
             href="/#contact"
-            className="text-sm font-medium text-charcoal-800 hover:text-maroon-600 transition-colors"
+            className="text-sm font-medium text-charcoal-800 hover:text-sage-600 transition-colors"
           >
             Contact
           </Link>
 
           <Link
             href="/#contact"
-            className="px-5 py-2.5 rounded-sm bg-maroon-600 hover:bg-maroon-500 text-white text-sm font-medium transition-all shadow-md hover:shadow-maroon-600/20"
+            className="px-5 py-2.5 rounded-sm bg-sage-600 hover:bg-sage-500 text-white text-sm font-medium transition-all shadow-md hover:shadow-sage-600/20"
           >
             Book Now
           </Link>
@@ -174,7 +179,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-charcoal-800 hover:text-maroon-600 transition-colors"
+          className="md:hidden text-charcoal-800 hover:text-sage-600 transition-colors"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
@@ -188,7 +193,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-white border-b border-maroon-100 shadow-xl md:hidden max-h-[calc(100vh-4rem)] overflow-y-auto"
+            className="absolute top-full left-0 w-full bg-white border-b border-sage-100 shadow-xl md:hidden max-h-[calc(100vh-4rem)] overflow-y-auto"
           >
             <nav className="flex flex-col p-6 gap-1">
               {navLinks.map((link) => (
@@ -196,17 +201,17 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-lg font-medium text-charcoal-800 hover:text-maroon-600 py-3 border-b border-maroon-100/50 transition-colors"
+                  className="text-lg font-medium text-charcoal-800 hover:text-sage-600 py-3 border-b border-sage-100/50 transition-colors"
                 >
                   {link.name}
                 </Link>
               ))}
 
               {/* Mobile Menus accordion */}
-              <div className="border-b border-maroon-100/50">
+              <div className="border-b border-sage-100/50">
                 <button
                   onClick={() => setMobileMenusOpen(!mobileMenusOpen)}
-                  className="w-full flex items-center justify-between text-lg font-medium text-charcoal-800 hover:text-maroon-600 py-3 transition-colors"
+                  className="w-full flex items-center justify-between text-lg font-medium text-charcoal-800 hover:text-sage-600 py-3 transition-colors"
                 >
                   Menus
                   <ChevronDown
@@ -225,7 +230,7 @@ export default function Navbar() {
                       <div className="pb-4 pl-2 grid grid-cols-2 gap-x-6 gap-y-5">
                         {menuCategories.map((category) => (
                           <div key={category.id}>
-                            <p className="text-xs uppercase tracking-widest text-maroon-600 font-medium mb-2">
+                            <p className="text-xs uppercase tracking-widest text-sage-600 font-medium mb-2">
                               {category.shortTitle}
                             </p>
                             <ul className="space-y-2">
@@ -234,7 +239,7 @@ export default function Navbar() {
                                   <Link
                                     href={`/menus#${menu.id}`}
                                     onClick={() => setMobileMenuOpen(false)}
-                                    className="text-sm text-charcoal-600 hover:text-maroon-600 transition-colors"
+                                    className="text-sm text-charcoal-600 hover:text-sage-600 transition-colors"
                                   >
                                     {menu.name}
                                   </Link>
@@ -247,7 +252,7 @@ export default function Navbar() {
                       <Link
                         href="/menus"
                         onClick={() => setMobileMenuOpen(false)}
-                        className="flex items-center gap-1.5 text-sm font-medium text-maroon-600 pb-4"
+                        className="flex items-center gap-1.5 text-sm font-medium text-sage-600 pb-4"
                       >
                         View Full Menu &amp; Pricing
                         <ArrowRight className="w-3.5 h-3.5" />
@@ -260,16 +265,16 @@ export default function Navbar() {
               <Link
                 href="/#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-lg font-medium text-charcoal-800 hover:text-maroon-600 py-3 border-b border-maroon-100/50 transition-colors"
+                className="text-lg font-medium text-charcoal-800 hover:text-sage-600 py-3 border-b border-sage-100/50 transition-colors"
               >
                 Contact
               </Link>
 
               <div className="flex flex-col gap-2 mt-2 text-sm text-charcoal-600">
-                <a href="tel:+441384240442" className="flex items-center gap-2 hover:text-maroon-600 transition-colors">
+                <a href="tel:+441384240442" className="flex items-center gap-2 hover:text-sage-600 transition-colors">
                   <Phone className="w-4 h-4" /> 01384 240442
                 </a>
-                <a href="tel:+447971560609" className="flex items-center gap-2 hover:text-maroon-600 transition-colors">
+                <a href="tel:+447971560609" className="flex items-center gap-2 hover:text-sage-600 transition-colors">
                   <Phone className="w-4 h-4" /> 07971 560609
                 </a>
               </div>
@@ -277,7 +282,7 @@ export default function Navbar() {
               <Link
                 href="/#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="mt-4 text-center px-5 py-3 rounded-sm bg-maroon-600 text-white font-medium hover:bg-maroon-500 transition-colors"
+                className="mt-4 text-center px-5 py-3 rounded-sm bg-sage-600 text-white font-medium hover:bg-sage-500 transition-colors"
               >
                 Book Now
               </Link>

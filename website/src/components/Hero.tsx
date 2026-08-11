@@ -17,7 +17,7 @@ export default function Hero() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#faf8f5] via-[#faf8f5]/90 to-[#faf8f5]/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/30"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -27,16 +27,16 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="inline-flex items-center gap-2 text-maroon-600 font-medium tracking-widest uppercase text-sm mb-4">
+            <span className="inline-flex items-center gap-2 text-gold-600 font-medium tracking-widest uppercase text-sm mb-4">
               Premium Catering
-              <span className="w-1 h-1 rounded-full bg-maroon-300" />
+              <span className="w-1 h-1 rounded-full bg-gold-400" />
               Family Run Since 1988
             </span>
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-charcoal-950 leading-tight mb-6">
-              Exquisite Catering for <span className="text-maroon-600 italic">Every Occasion</span>
+              Exquisite Catering for <span className="text-gold-600 italic">Every Occasion</span>
             </h1>
             <p className="text-lg md:text-xl text-charcoal-700 mb-10 max-w-2xl leading-relaxed">
-              From intimate breakfast meetings to grand weddings, we deliver bespoke culinary experiences across Dudley and beyond. Fresh ingredients, exceptional service.
+              From breakfast meetings and business lunches to parties, christenings and wakes, we deliver bespoke catering across Dudley and beyond. Fresh ingredients, exceptional service.
             </p>
           </motion.div>
 
@@ -48,14 +48,14 @@ export default function Hero() {
           >
             <Link
               href="#contact"
-              className="px-8 py-4 bg-maroon-600 hover:bg-maroon-500 text-white font-medium rounded-sm text-center transition-all flex items-center justify-center gap-2 group shadow-md hover:shadow-maroon-600/10"
+              className="px-8 py-4 bg-sage-600 hover:bg-sage-500 text-white font-medium rounded-sm text-center transition-all flex items-center justify-center gap-2 group shadow-md hover:shadow-sage-600/10"
             >
               Book Catering
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               href="#menus"
-              className="px-8 py-4 bg-transparent border border-maroon-200 hover:border-maroon-500 text-charcoal-900 hover:text-maroon-600 hover:bg-maroon-50/40 font-medium rounded-sm text-center transition-all"
+              className="px-8 py-4 bg-transparent border border-sage-200 hover:border-sage-500 text-charcoal-900 hover:text-sage-600 hover:bg-sage-50/40 font-medium rounded-sm text-center transition-all"
             >
               View Our Menus
             </Link>
@@ -71,11 +71,11 @@ export default function Hero() {
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
         <span className="text-charcoal-500 text-xs uppercase tracking-widest">Scroll</span>
-        <div className="w-px h-12 bg-maroon-200 relative overflow-hidden">
+        <div className="w-px h-12 bg-sage-200 relative overflow-hidden">
           <motion.div
             animate={{ y: ["-100%", "100%"] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-            className="absolute inset-0 bg-maroon-500"
+            className="absolute inset-0 bg-sage-500"
           ></motion.div>
         </div>
       </motion.div>

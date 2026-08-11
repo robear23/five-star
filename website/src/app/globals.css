@@ -1,17 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-  --color-maroon-50: #fcf4f5;
-  --color-maroon-100: #f7e6e8;
-  --color-maroon-200: #ecc7cb;
-  --color-maroon-300: #dda0a8;
-  --color-maroon-400: #c9707d;
-  --color-maroon-500: #b24657;
-  --color-maroon-600: #973243;
-  --color-maroon-700: #7e2635;
-  --color-maroon-800: #69222e;
-  --color-maroon-900: #581f28;
-  --color-maroon-950: #330f14;
+  /* Sage — structure, surfaces, CTAs. Sampled from the vehicle livery. */
+  --color-sage-50: #f5f7f4;
+  --color-sage-100: #e8ece5;
+  --color-sage-200: #d1d9cc;
+  --color-sage-300: #b0bda8;
+  --color-sage-400: #8c9c83;
+  --color-sage-500: #7d8b71; /* livery banner sage */
+  --color-sage-600: #66735c; /* primary CTA */
+  --color-sage-700: #515c49; /* livery lower panel */
+  --color-sage-800: #424a3d;
+  --color-sage-900: #383e34;
+  --color-sage-950: #1c211a;
+
+  /* Gold — accents, emphasis, fine detail. From the livery pinstripe & stars. */
+  --color-gold-50: #faf8f0;
+  --color-gold-100: #f4eeda;
+  --color-gold-200: #e8dbb5;
+  --color-gold-300: #d8c288;
+  --color-gold-400: #c9a967;
+  --color-gold-500: #b8985c; /* brand gold */
+  --color-gold-600: #9c7c47;
+  --color-gold-700: #7d613b;
+  --color-gold-800: #675134;
+  --color-gold-900: #57452e;
+  --color-gold-950: #302517;
 
   --color-charcoal-50: #f6f6f6;
   --color-charcoal-100: #e7e7e7;
@@ -52,12 +66,12 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #faf8f5;
+  background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: #d1d1d1;
+  background: var(--color-charcoal-200);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #b24657;
+  background: var(--color-sage-600);
 }
