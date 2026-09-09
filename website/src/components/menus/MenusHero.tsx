@@ -2,13 +2,25 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { menuCategories } from "@/lib/menus-data";
 
 export default function MenusHero() {
   return (
     <section className="relative pt-40 pb-20 bg-charcoal-950 overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.06] bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:24px_24px]" />
-      <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-sage-600/20 blur-3xl" />
+      {/* Background Image & Ambient Accents */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/buffet-platter-showcase.jpg"
+          alt="Professional catering buffet with canapés, platters and champagne"
+          fill
+          priority
+          className="object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/80 to-charcoal-950/70" />
+      </div>
+      <div className="absolute inset-0 opacity-[0.06] bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:24px_24px] pointer-events-none" />
+      <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-sage-600/20 blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div

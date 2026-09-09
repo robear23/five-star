@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Leaf, Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
+import Logo from "@/components/Logo";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,16 +11,8 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           
           <div className="md:col-span-2">
-            <Link href="/#home" className="flex items-center gap-2 mb-6 group inline-flex">
-              <Leaf className="w-6 h-6 text-sage-600 group-hover:text-sage-500 transition-colors" />
-              <span className="flex flex-col leading-none">
-                <span className="font-serif text-xl font-bold tracking-wide text-charcoal-950 group-hover:text-sage-700 transition-colors">
-                  Five Star
-                </span>
-                <span className="text-[0.6rem] font-medium uppercase tracking-[0.35em] text-gold-600 mt-1">
-                  Caterers
-                </span>
-              </span>
+            <Link href="/#home" aria-label="Five Star Caterers — home" className="group mb-8 inline-block">
+              <Logo className="text-[12px]" />
             </Link>
             <p className="text-charcoal-600 max-w-sm leading-relaxed mb-6">
               Family-run since 1988. Exquisite catering for business lunches, training courses,

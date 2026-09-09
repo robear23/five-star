@@ -94,18 +94,18 @@ export default function About() {
           >
             <div className="absolute top-0 right-0 w-4/5 h-4/5 rounded-sm overflow-hidden border border-sage-100 shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2070&auto=format&fit=crop"
-                alt="Chef preparing food"
+                src="/images/about-canapes-service.jpg"
+                alt="Professional waitress serving a platter of gourmet canapés to guests at an event"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
               />
             </div>
             <div className="absolute bottom-0 left-0 w-3/5 h-3/5 rounded-sm overflow-hidden border-[6px] border-white shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=2070&auto=format&fit=crop"
-                alt="Elegant food plating"
+                src="/images/about-champagne-pour.jpg"
+                alt="Waitress elegantly pouring champagne into flutes at a catered event reception"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
               />
             </div>
             {/* Decorative element */}

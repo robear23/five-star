@@ -2,10 +2,15 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Leaf, ChevronDown, Phone, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { menuCategories } from "@/lib/menus-data";
+import Logo from "@/components/Logo";
+
+/* Routes whose hero sits behind the transparent navbar on a dark ground. */
+const DARK_HERO_ROUTES = new Set(["/menus"]);
 
 const navLinks = [
   { name: "Home", href: "/#home" },
@@ -19,6 +24,16 @@ export default function Navbar() {
   const [mobileMenusOpen, setMobileMenusOpen] = useState(false);
   const [menusDropdownOpen, setMenusDropdownOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pathname = usePathname();
+
+  /* Once scrolled the bar gains its own light background, so the dark-ground
+     livery only applies while it is still transparent over the hero. */
+  const onDarkHero = DARK_HERO_ROUTES.has(pathname) && !isScrolled;
+
+  const navLinkClass = cn(
+    "text-sm font-medium transition-colors",
+    onDarkHero ? "text-charcoal-100 hover:text-gold-300" : "text-charcoal-800 hover:text-sage-600"
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,16 +87,8 @@ export default function Navbar() {
 
       <div className={cn("container mx-auto px-6 flex items-center justify-between transition-all duration-300", isScrolled ? "py-4" : "py-6")}>
         {/* Logo */}
-        <Link href="/#home" className="flex items-center gap-2.5 group">
-          <Leaf className="w-8 h-8 text-sage-600 group-hover:text-sage-500 transition-colors" />
-          <span className="flex flex-col leading-none">
-            <span className="font-serif text-2xl font-bold tracking-wide text-charcoal-950 group-hover:text-sage-700 transition-colors">
-              Five Star
-            </span>
-            <span className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-gold-600 mt-1">
-              Caterers
-            </span>
-          </span>
+        <Link href="/#home" aria-label="Five Star Caterers — home" className="group">
+          <Logo showTagline={false} ground={onDarkHero ? "dark" : "light"} className="text-[11px]" />
         </Link>
 
         {/* Desktop Nav */}
@@ -90,7 +97,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-charcoal-800 hover:text-sage-600 transition-colors"
+              className={navLinkClass}
             >
               {link.name}
             </Link>
@@ -104,7 +111,7 @@ export default function Navbar() {
           >
             <Link
               href="/menus"
-              className="flex items-center gap-1 text-sm font-medium text-charcoal-800 hover:text-sage-600 transition-colors"
+              className={cn("flex items-center gap-1", navLinkClass)}
             >
               Menus
               <ChevronDown
@@ -164,7 +171,7 @@ export default function Navbar() {
 
           <Link
             href="/#contact"
-            className="text-sm font-medium text-charcoal-800 hover:text-sage-600 transition-colors"
+            className={navLinkClass}
           >
             Contact
           </Link>
@@ -179,7 +186,10 @@ export default function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-charcoal-800 hover:text-sage-600 transition-colors"
+          className={cn(
+            "md:hidden transition-colors",
+            onDarkHero ? "text-white hover:text-gold-300" : "text-charcoal-800 hover:text-sage-600"
+          )}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}

@@ -11,13 +11,13 @@ export default function Hero() {
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2070&auto=format&fit=crop"
-          alt="Gourmet catering spread"
+          src="/images/hero-champagne-service.jpg"
+          alt="Professional catering waitress serving champagne flutes to guests at an event"
           fill
           priority
-          className="object-cover"
+          className="object-cover object-center md:object-[center_right]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 md:via-background/80 to-background/40 md:to-transparent"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
