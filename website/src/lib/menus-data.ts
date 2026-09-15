@@ -2,6 +2,7 @@ import {
   Briefcase,
   Cake,
   Coffee,
+  Croissant,
   Heart,
   HeartHandshake,
   Martini,
@@ -132,6 +133,30 @@ export const menuCategories: MenuCategory[] = [
           "Seafood platter",
           "Cheese & grapes",
           "Fresh fruit kebabs, small cakes",
+        ],
+      },
+    ],
+  },
+  {
+    id: "breakfast",
+    title: "Breakfast Menu",
+    shortTitle: "Breakfast",
+    description:
+      "Breakfast meetings and early starts — hot baps, pastries and fresh fruit, delivered and set up ready to serve.",
+    icon: Croissant,
+    menus: [
+      {
+        id: "breakfast-menu",
+        name: "Breakfast Menu",
+        price: "From £1.25",
+        note: "Priced per item. Sourdough rolls available on request. Hot food is supplied in chafers and kept hot, on a help-yourself basis. Minimum numbers apply.",
+        items: [
+          "Bacon & sausage baps — £5.95",
+          "Vegetarian sausage baps — £5.95",
+          "Scrambled eggs, mushrooms & spinach — vegetarian option",
+          "Pastries, croissants & muffins — £3.50 per head",
+          "Large fresh fruit platter — £25.00",
+          "Yoghurts with fruit & muesli — £1.25",
         ],
       },
     ],
