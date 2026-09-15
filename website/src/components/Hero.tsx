@@ -1,23 +1,77 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
+const HERO_IMAGES = [
+  {
+    src: "/images/hero-champagne-service.jpg",
+    alt: "Professional catering waitress serving champagne flutes to guests at an event",
+  },
+  {
+    src: "/images/hero-canapes-platter.jpg",
+    alt: "Exquisite handcrafted gourmet canapes and hors d'oeuvres on luxury display platters",
+  },
+  {
+    src: "/images/hero-buffet-spread.jpg",
+    alt: "Fresh artisanal corporate buffet catering spread with gourmet sandwiches and salads",
+  },
+  {
+    src: "/images/hero-banquet-celebration.jpg",
+    alt: "Fine dining catering service and elegant table setting at a banquet celebration",
+  },
+];
+
+const SLIDE_DURATION = 6000; // 6 seconds per slide
+
 export default function Hero() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, SLIDE_DURATION);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background Image & Overlay */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/hero-champagne-service.jpg"
-          alt="Professional catering waitress serving champagne flutes to guests at an event"
-          fill
-          priority
-          className="object-cover object-center md:object-[center_right]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 md:via-background/80 to-background/40 md:to-transparent"></div>
+      {/* Background Slideshow with Ken Burns Effect */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <AnimatePresence initial={false} mode="sync">
+          <motion.div
+            key={HERO_IMAGES[currentSlide].src}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            <motion.div
+              initial={{ scale: 1 }}
+              animate={{ scale: 1.08 }}
+              transition={{ duration: SLIDE_DURATION / 1000 + 1.5, ease: "linear" }}
+              className="relative w-full h-full"
+            >
+              <Image
+                src={HERO_IMAGES[currentSlide].src}
+                alt={HERO_IMAGES[currentSlide].alt}
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover object-center md:object-[center_right]"
+              />
+            </motion.div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Gradient Overlays for optimal readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 md:via-background/80 to-background/40 md:to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -60,6 +114,22 @@ export default function Hero() {
               View Our Menus
             </Link>
           </motion.div>
+
+          {/* Slide Indicator Dots */}
+          <div className="flex items-center gap-2 mt-12">
+            {HERO_IMAGES.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentSlide(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+                className={`h-1.5 rounded-full transition-all duration-500 ${
+                  idx === currentSlide
+                    ? "w-8 bg-gold-500"
+                    : "w-2 bg-charcoal-300/60 hover:bg-charcoal-400"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
@@ -68,7 +138,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
       >
         <span className="text-charcoal-500 text-xs uppercase tracking-widest">Scroll</span>
         <div className="w-px h-12 bg-sage-200 relative overflow-hidden">
