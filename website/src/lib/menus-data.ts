@@ -293,7 +293,7 @@ export const menuCategories: MenuCategory[] = [
       {
         id: "christening-menu-a",
         name: "Christening Menu A",
-        price: "Price on request",
+        price: "£8.95 per head",
         items: [
           "Selection of sandwiches on brown, white & seeded bread",
           "Crisps & bites with salsa dip",

@@ -33,7 +33,7 @@ export default function Hero() {
               Family Run Since 1988
             </span>
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-charcoal-950 leading-tight mb-6">
-              Exquisite Catering for <span className="text-gold-600 italic">Every Occasion</span>
+              Catering at its <span className="text-gold-600 italic">Best</span>
             </h1>
             <p className="text-lg md:text-xl text-charcoal-700 mb-10 max-w-2xl leading-relaxed">
               From breakfast meetings and business lunches to parties, christenings and wakes, we deliver bespoke catering across Dudley and beyond. Fresh ingredients, exceptional service.
