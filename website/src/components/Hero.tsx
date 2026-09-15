@@ -42,9 +42,9 @@ export default function Hero() {
     <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       {/* Background Slideshow with Ken Burns Effect */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <AnimatePresence initial={false} mode="sync">
+        <AnimatePresence initial={true} mode="sync">
           <motion.div
-            key={HERO_IMAGES[currentSlide].src}
+            key={`slide-${currentSlide}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -52,9 +52,10 @@ export default function Hero() {
             className="absolute inset-0"
           >
             <motion.div
+              key={`zoom-${currentSlide}`}
               initial={{ scale: 1 }}
               animate={{ scale: 1.08 }}
-              transition={{ duration: SLIDE_DURATION / 1000 + 1.5, ease: "linear" }}
+              transition={{ duration: (SLIDE_DURATION + 1500) / 1000, ease: "easeOut" }}
               className="relative w-full h-full"
             >
               <Image
