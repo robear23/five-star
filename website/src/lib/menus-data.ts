@@ -153,7 +153,7 @@ export const menuCategories: MenuCategory[] = [
         items: [
           "Bacon & sausage baps — £5.95",
           "Vegetarian sausage baps — £5.95",
-          "Scrambled eggs, mushrooms & spinach — vegetarian option",
+          "Scrambled eggs, mushrooms & spinach — £5.95",
           "Pastries, croissants & muffins — £3.50 per head",
           "Large fresh fruit platter — £25.00",
           "Yoghurts with fruit & muesli — £1.25",
