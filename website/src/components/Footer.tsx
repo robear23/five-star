@@ -90,6 +90,14 @@ export default function Footer() {
           <p className="text-charcoal-500 text-sm">
             &copy; {currentYear} {business.name}. All rights reserved.
           </p>
+          <div className="flex items-center gap-6 order-first md:order-none">
+            <Link href="/privacy" className="text-charcoal-500 text-sm hover:text-sage-600 transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="text-charcoal-500 text-sm hover:text-sage-600 transition-colors">
+              Terms &amp; Conditions
+            </Link>
+          </div>
           <p className="text-charcoal-500 text-sm">
             Established 13th March 1988 in Dudley, West Midlands
           </p>

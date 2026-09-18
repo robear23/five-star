@@ -29,7 +29,7 @@ export const business = {
   telephoneDisplay: "01384 240442",
   mobile: "+447971560609",
   mobileDisplay: "07971 560609",
-  email: "fivestarcaterers@hotmail.co.uk",
+  email: "info@fivestarcaterers.net",
 
   address: {
     streetAddress: "166 Wolverhampton Street",
