@@ -2,74 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import {
-  Briefcase,
-  GraduationCap,
-  Coffee,
-  PartyPopper,
-  HeartHandshake,
-  Cake,
-  Heart,
-} from "lucide-react";
-
-const services = [
-  {
-    id: "business-lunches",
-    title: "Business Lunches",
-    description: "Working lunches and boardroom buffets delivered on time and set up ready to serve, so your meeting stays on schedule.",
-    icon: Briefcase,
-    href: "/menus#business",
-    delay: 0.1,
-  },
-  {
-    id: "training-courses",
-    title: "Training Courses",
-    description: "All-day catering for training rooms and away days, from morning pastries through to a full lunch buffet.",
-    icon: GraduationCap,
-    href: "/menus#business",
-    delay: 0.15,
-  },
-  {
-    id: "breakfast-meetings",
-    title: "Breakfast Meetings",
-    description: "Early starts covered — fresh pastries, fruit and hot drinks, delivered before your first guest arrives.",
-    icon: Coffee,
-    href: "/menus#refreshments",
-    delay: 0.2,
-  },
-  {
-    id: "parties",
-    title: "Private Parties",
-    description: "From birthdays to anniversaries, let us handle the food so you can enjoy the celebration. Hot buffets, cold platters, and more.",
-    icon: PartyPopper,
-    href: "/menus#parties",
-    delay: 0.25,
-  },
-  {
-    id: "wakes",
-    title: "Wakes & Life Celebrations",
-    description: "Respectful, reliable, and discreet catering services to help you honour loved ones without the stress of organising food.",
-    icon: HeartHandshake,
-    href: "/menus#wakes",
-    delay: 0.3,
-  },
-  {
-    id: "christenings",
-    title: "Christenings",
-    description: "Warm, welcoming spreads for one of life's most treasured celebrations, suited to family and guests of all ages.",
-    icon: Cake,
-    href: "/menus#christenings",
-    delay: 0.35,
-  },
-  {
-    id: "weddings",
-    title: "Weddings",
-    description: "Relaxed buffets and elegant platters for wedding receptions, tailored to your guest count and dietary needs.",
-    icon: Heart,
-    href: "/menus#weddings",
-    delay: 0.4,
-  },
-];
+import { services } from "@/lib/services-data";
 
 export default function Services() {
   return (
@@ -90,13 +23,13 @@ export default function Services() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service) => (
+          {services.map((service, idx) => (
             <motion.div
               key={service.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: service.delay, duration: 0.6 }}
+              transition={{ delay: 0.1 + idx * 0.05, duration: 0.6 }}
             >
               <Link
                 href={service.href}

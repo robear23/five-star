@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Wine, UtensilsCrossed, Users, Sparkles } from "lucide-react";
+import { YEARS_TRADING } from "@/lib/site";
 
 const highlights = [
   {
@@ -27,8 +28,7 @@ const highlights = [
   {
     title: "Corporate & Private Event Buffets",
     category: "Bespoke Spreads",
-    description:
-      "Seamless boardroom lunches, lavish wedding spreads, and celebration buffets crafted with 38 years of culinary passion.",
+    description: `Seamless boardroom lunches, lavish wedding spreads, and celebration buffets crafted with ${YEARS_TRADING} years of culinary passion.`,
     image: "/images/corporate-buffet-event.jpg",
     alt: "Luxurious buffet presentation with warm dishes, salads, and artisan breads at an event",
     icon: Users,
@@ -77,6 +77,8 @@ export default function EventShowcase() {
                   src={item.image}
                   alt={item.alt}
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  loading="lazy"
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/70 via-transparent to-transparent opacity-70 group-hover:opacity-50 transition-opacity" />

@@ -67,9 +67,9 @@ export default function MenuPreview() {
                     className="border-b border-sage-100/60 pb-6 group block"
                   >
                     <div className="flex justify-between items-baseline mb-2">
-                      <h4 className="text-xl font-serif font-bold text-charcoal-900 group-hover:text-sage-600 transition-colors">
+                      <h3 className="text-xl font-serif font-bold text-charcoal-900 group-hover:text-sage-600 transition-colors">
                         {menu.name}
-                      </h4>
+                      </h3>
                       <span className="text-gold-700 text-sm font-medium whitespace-nowrap ml-4">
                         {menu.price}
                       </span>

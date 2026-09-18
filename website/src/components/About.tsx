@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
+import { YEARS_TRADING } from "@/lib/site";
 
 const features = [
   "Bespoke Menus",
@@ -13,7 +14,7 @@ const features = [
 
 const stats = [
   { value: "1988", label: "Est. by Michelle Dabbs" },
-  { value: "38", label: "Years of Experience" },
+  { value: String(YEARS_TRADING), label: "Years of Experience" },
   { value: "20+", label: "Bespoke Menus" },
   { value: "100%", label: "Family Run" },
 ];
@@ -43,7 +44,7 @@ export default function About() {
             <p className="text-charcoal-700 mb-6 leading-relaxed text-lg">
               Five Star Caterers was founded on 13th March 1988 by Michelle Dabbs, who started the
               business at just 18 years old through the government&apos;s Enterprise Allowance Scheme.
-              Thirty-eight years on, we&apos;re still a family-run business based in Dudley, delivering
+              {" "}{YEARS_TRADING} years on, we&apos;re still a family-run business based in Dudley, delivering
               premium catering tailored to your exact needs—whether it&apos;s a sharp business luncheon,
               a full day of training, or a respectful wake.
             </p>
@@ -97,6 +98,7 @@ export default function About() {
                 src="/images/about-canapes-service.jpg"
                 alt="Professional waitress serving a platter of gourmet canapés to guests at an event"
                 fill
+                sizes="(max-width: 1024px) 80vw, 40vw"
                 className="object-cover object-center"
               />
             </div>
@@ -105,6 +107,7 @@ export default function About() {
                 src="/images/about-champagne-pour.jpg"
                 alt="Waitress elegantly pouring champagne into flutes at a catered event reception"
                 fill
+                sizes="(max-width: 1024px) 60vw, 30vw"
                 className="object-cover object-center"
               />
             </div>

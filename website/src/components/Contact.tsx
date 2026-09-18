@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Check, Loader2 } from "lucide-react";
+import { business } from "@/lib/site";
 
 type SubmitStatus = "idle" | "sending" | "sent" | "error";
 
@@ -88,11 +89,11 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-charcoal-500 font-medium mb-1">Call Us</p>
-                  <a href="tel:+441384240442" className="block text-lg text-charcoal-900 hover:text-sage-600 transition-colors">
-                    01384 240442
+                  <a href={`tel:${business.telephone}`} className="block text-lg text-charcoal-900 hover:text-sage-600 transition-colors">
+                    {business.telephoneDisplay}
                   </a>
-                  <a href="tel:+447971560609" className="block text-lg text-charcoal-900 hover:text-sage-600 transition-colors">
-                    07971 560609
+                  <a href={`tel:${business.mobile}`} className="block text-lg text-charcoal-900 hover:text-sage-600 transition-colors">
+                    {business.mobileDisplay}
                   </a>
                 </div>
               </div>
@@ -103,8 +104,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-charcoal-500 font-medium mb-1">Email Us</p>
-                  <a href="mailto:fivestarcaterers@hotmail.co.uk" className="text-lg text-charcoal-900 hover:text-sage-600 transition-colors">
-                    fivestarcaterers@hotmail.co.uk
+                  <a href={`mailto:${business.email}`} className="text-lg text-charcoal-900 hover:text-sage-600 transition-colors">
+                    {business.email}
                   </a>
                 </div>
               </div>
@@ -115,11 +116,11 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-charcoal-500 font-medium mb-1">Visit Us</p>
-                  <p className="text-lg text-charcoal-900">
-                    166 Wolverhampton Street<br />
-                    Dudley, West Midlands<br />
-                    DY1 3AH
-                  </p>
+                  <address className="not-italic text-lg text-charcoal-900">
+                    {business.address.streetAddress}<br />
+                    {business.address.addressLocality}, {business.address.addressRegion}<br />
+                    {business.address.postalCode}
+                  </address>
                 </div>
               </div>
             </div>

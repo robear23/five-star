@@ -15,6 +15,7 @@ export default function MenusHero() {
           alt="Professional catering buffet with canapés, platters and champagne"
           fill
           priority
+          sizes="100vw"
           className="object-cover opacity-20"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/80 to-charcoal-950/70" />

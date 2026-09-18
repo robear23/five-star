@@ -8,9 +8,10 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { menuCategories } from "@/lib/menus-data";
 import Logo from "@/components/Logo";
+import { YEARS_TRADING } from "@/lib/site";
 
 /* Routes whose hero sits behind the transparent navbar on a dark ground. */
-const DARK_HERO_ROUTES = new Set(["/menus"]);
+const DARK_HERO_ROUTES = new Set(["/menus", "/faq"]);
 
 const navLinks = [
   { name: "Home", href: "/#home" },
@@ -70,7 +71,7 @@ export default function Navbar() {
       >
         <div className="container mx-auto px-6 flex items-center justify-between text-xs text-charcoal-200 py-2 tracking-wide">
           <span className="uppercase tracking-widest text-gold-400/90">
-            Est. 1988 &middot; 38 Years of Five-Star Catering
+            Est. 1988 &middot; {YEARS_TRADING} Years of Five-Star Catering
           </span>
           <div className="flex items-center gap-6">
             <a href="tel:+441384240442" className="flex items-center gap-1.5 hover:text-white transition-colors">
@@ -168,6 +169,10 @@ export default function Navbar() {
               )}
             </AnimatePresence>
           </div>
+
+          <Link href="/faq" className={navLinkClass}>
+            FAQs
+          </Link>
 
           <Link
             href="/#contact"
@@ -271,6 +276,14 @@ export default function Navbar() {
                   )}
                 </AnimatePresence>
               </div>
+
+              <Link
+                href="/faq"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-lg font-medium text-charcoal-800 hover:text-sage-600 py-3 border-b border-sage-100/50 transition-colors"
+              >
+                FAQs
+              </Link>
 
               <Link
                 href="/#contact"
